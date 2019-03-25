@@ -1,9 +1,10 @@
 ﻿@model SEMaker.Models.Event
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
-<h2>Details</h2>
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Events</h4>
     <hr />
@@ -27,19 +28,10 @@
             @Html.DisplayFor(model => model.City)
         </dd>
     </dl>
-</div>
-<div>
-    @if (User.Identity.IsAuthenticated)
-    {
-        var objevents = new EventDataAccessLayer();
-        if (User.Identity.Name.Equals(@Model.Author))
-        {
-            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> <nobr> |</nobr>
-        }
-        else if (!objevents.CheckApplication(User.Identity.Name, @Model.ID))
-        {
-            <a asp-action="Apply" asp-controller="Event" asp-route-id="@Model.ID">Apply</a> <nobr> |</nobr>
-        }
-    }
-    <a asp-action="Index">Back to List</a>
-</div> 
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>    

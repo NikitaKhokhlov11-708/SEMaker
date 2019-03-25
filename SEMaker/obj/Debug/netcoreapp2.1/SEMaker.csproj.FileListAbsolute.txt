@@ -117,3 +117,7 @@ C:\Users\Nikita\source\repos\SEMaker\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEM
 C:\Users\Nikita\source\repos\SEMaker\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.pdb
 C:\Users\Nikita\source\repos\SEMaker\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.csproj.CopyComplete
 C:\Users\Nikita\source\repos\SEMaker\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Index.g.cshtml.cs
+C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\TablePartial.g.cshtml.cs
+C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Applications\Delete.g.cshtml.cs
+C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Applications\Index.g.cshtml.cs
+C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Apply.g.cshtml.cs

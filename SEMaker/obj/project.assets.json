@@ -12963,11 +12963,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nikita\\source\\repos\\SEMaker\\SEMaker\\SEMaker\\SEMaker.csproj",
+      "projectUniqueName": "C:\\Users\\Nikita\\source\\repos\\SEMaker\\SEMaker\\SEMaker.csproj",
       "projectName": "SEMaker",
-      "projectPath": "C:\\Users\\Nikita\\source\\repos\\SEMaker\\SEMaker\\SEMaker\\SEMaker.csproj",
+      "projectPath": "C:\\Users\\Nikita\\source\\repos\\SEMaker\\SEMaker\\SEMaker.csproj",
       "packagesPath": "C:\\Users\\Nikita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nikita\\source\\repos\\SEMaker\\SEMaker\\SEMaker\\obj\\",
+      "outputPath": "C:\\Users\\Nikita\\source\\repos\\SEMaker\\SEMaker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -150,5 +150,107 @@ namespace SEMaker.Models
                 con.Close();
             }
         }
+
+        public IEnumerable<int> GetApplications(int? id)
+        {
+            List<int> lstApplications = new List<int>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spGetApplications", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@EventID", id);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    lstApplications.Add(Convert.ToInt32(rdr["EventID"]));
+                }
+                con.Close();
+            }
+            return lstApplications;
+        }
+
+        public void Apply(int? id, string name)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spApply", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@EvntId", id);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public void RemoveApplication(int? id, string name)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spRemoveApplication", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@EvntId", id);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public IEnumerable<Event> GetMyApplications(String author)
+        {
+            List<Event> lstevent = new List<Event>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spGetMyApplications", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Name", author);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Event evnt = new Event();
+
+                    evnt.ID = Convert.ToInt32(rdr["EventID"]);
+                    evnt.Name = rdr["Name"].ToString();
+                    evnt.Sport = rdr["Sport"].ToString();
+                    evnt.City = rdr["City"].ToString();
+                    evnt.Author = rdr["Author"].ToString();
+
+
+                    lstevent.Add(evnt);
+                }
+                con.Close();
+            }
+            return lstevent;
+        }
+
+        public bool CheckApplication(String author, int id)
+        {
+            bool res;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spCheckApplication", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Name", author);
+                cmd.Parameters.AddWithValue("@EvntId", id);
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                res = rdr.HasRows;
+                con.Close();
+            }
+            return res;
+        }
     }
 }
