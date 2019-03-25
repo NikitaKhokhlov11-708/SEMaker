@@ -1,0 +1,40 @@
+﻿@model SEMaker.Models.Event
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Events</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sport)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.Identity.Name == @Model.Author)
+        {
+            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> <nobr> |</nobr>
+        }
+    }
+    <a asp-action="Index">Back to List</a>
+</div> 
