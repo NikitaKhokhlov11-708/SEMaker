@@ -12,26 +12,24 @@ namespace SEMaker.Controllers
 {
     public class AccountController : Controller
     {
-        private UserContext db;
-        public AccountController(UserContext context)
-        {
-            db = context;
-        }
+         DataAccessLayer objevent = new DataAccessLayer();
+
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                var user = objevent.GetUserData(model.Login);
                 if (user != null)
                 {
-                    await Authenticate(model.Email); // аутентификация
+                    await Authenticate(model.Login); // аутентификация
 
                     return RedirectToAction("Index", "Event", new { area = "" });
                 }
@@ -39,25 +37,33 @@ namespace SEMaker.Controllers
             }
             return View(model);
         }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                var user = objevent.GetUserData(model.Login);
                 if (user == null)
                 {
                     // добавляем пользователя в бд
-                    db.Users.Add(new User { Email = model.Email, Password = model.Password });
-                    await db.SaveChangesAsync();
-
-                    await Authenticate(model.Email); // аутентификация
+                    objevent.AddUser(new User
+                    {
+                        Name = model.Name,
+                        Surname = model.Surname,
+                        SecondName = model.SecondName,
+                        BirthDate = model.BirthDate,
+                        Login = model.Login,
+                        Password = model.Password
+                    });
+                    await Authenticate(model.Login); // аутентификация
 
                     return RedirectToAction("Index", "Event", new { area = "" });
                 }

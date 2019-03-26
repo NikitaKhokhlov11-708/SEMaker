@@ -31,7 +31,7 @@
 <div>
     @if (User.Identity.IsAuthenticated)
     {
-        var objevents = new EventDataAccessLayer();
+        var objevents = new DataAccessLayer();
         if (User.Identity.Name.Equals(@Model.Author))
         {
             <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> <nobr> |</nobr>

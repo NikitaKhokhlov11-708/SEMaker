@@ -10,7 +10,7 @@ namespace SEMaker.Controllers
 {
     public class EventController : Controller
     {
-        EventDataAccessLayer objevent = new EventDataAccessLayer();
+        DataAccessLayer objevent = new DataAccessLayer();
 
         public IActionResult Index(string sortOrder,
                                     string currentFilter,

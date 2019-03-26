@@ -1,11 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SEMaker.ViewModels
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "Не указан Email")]
-        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Не указана фамилия")]
+        public string Surname { get; set; }
+
+        [Required(ErrorMessage = "Не указано имя")]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Не указано отчество")]
+        public string SecondName { get; set; }
+
+        [Required(ErrorMessage = "Не указана дата рожденияя")]
+        public DateTime BirthDate { get; set; }
+
+        [Required(ErrorMessage = "Не указан логин")]
+        public string Login { get; set; }
 
         [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]

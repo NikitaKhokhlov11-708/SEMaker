@@ -121,3 +121,46 @@ C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views
 C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Applications\Delete.g.cshtml.cs
 C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Applications\Index.g.cshtml.cs
 C:\Users\Nikita\source\repos\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Apply.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.deps.json
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.runtimeconfig.json
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.runtimeconfig.dev.json
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.dll
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.pdb
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.Views.dll
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.Views.pdb
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.csprojAssemblyReference.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.csproj.CoreCompileInputs.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.RazorAssemblyInfo.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.RazorAssemblyInfo.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.AssemblyInfoInputs.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.AssemblyInfo.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.TagHelpers.input.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.TagHelpers.output.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.RazorCoreGenerate.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Applications\Delete.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Applications\Index.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Apply.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Create.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Delete.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Details.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Edit.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Index.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\TablePartial.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.RazorTargetAssemblyInfo.cache
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.RazorTargetAssemblyInfo.cs
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.Views.pdb
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.dll
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.pdb
+D:\SEM\SEMaker-master (1)\SEMaker-master\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.csproj.CopyComplete
