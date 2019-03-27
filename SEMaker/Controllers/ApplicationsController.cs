@@ -75,11 +75,10 @@ namespace SEMaker.Controllers
             }
             Event evnt = objevent.GetEventData(id);
 
-            if (evnt == null)
-                if (evnt == null)
-                {
+            if (evnt == null || !objevent.CheckApplication(User.Identity.Name, id))
+            {
                     return NotFound();
-                }
+            }
             return View(evnt);
         }
 

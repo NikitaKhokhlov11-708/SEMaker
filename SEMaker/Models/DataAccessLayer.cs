@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
 
         //To View all employees details      
         public IEnumerable<Event> GetAllEvents()
@@ -188,7 +188,7 @@ namespace SEMaker.Models
                 SqlCommand cmd = new SqlCommand("spUpdateEvent", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@EmpId", evnt.ID);
+                cmd.Parameters.AddWithValue("@EvntId", evnt.ID);
                 cmd.Parameters.AddWithValue("@Name", evnt.Name);
                 cmd.Parameters.AddWithValue("@Sport", evnt.Sport);
                 cmd.Parameters.AddWithValue("@City", evnt.City);
@@ -323,7 +323,7 @@ namespace SEMaker.Models
             return lstevent;
         }
 
-        public bool CheckApplication(String author, int id)
+        public bool CheckApplication(String author, int? id)
         {
             bool res;
 
