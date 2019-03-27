@@ -138,7 +138,7 @@ using SEMaker.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(858, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "52f60d67b3434d2b9d638504307beb7c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "25dacd669b65494fb980f9b0416c66bd", async() => {
                 BeginContext(904, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -183,7 +183,7 @@ using SEMaker.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(1042, 79, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c2c4b8c0be0b4e74a92506cf6564c330", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f105ac3cb04e43bb83b26f4f8f792910", async() => {
                 BeginContext(1112, 5, true);
                 WriteLiteral("Apply");
                 EndContext();
@@ -229,7 +229,7 @@ using SEMaker.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(1161, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "874c47a89cc8411699949b5d47b17aad", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0bb26d5aa7204abc9362e65c73f09ef7", async() => {
                 BeginContext(1183, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

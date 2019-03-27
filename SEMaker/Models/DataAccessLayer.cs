@@ -33,6 +33,7 @@ namespace SEMaker.Models
                     evnt.Sport = rdr["Sport"].ToString();
                     evnt.City = rdr["City"].ToString();
                     evnt.Author = rdr["Author"].ToString();
+                    evnt.Places = Convert.ToInt32(rdr["Places"]);
 
                     lstevent.Add(evnt);
                 }
@@ -62,8 +63,9 @@ namespace SEMaker.Models
                     evnt.Sport = rdr["Sport"].ToString();
                     evnt.City = rdr["City"].ToString();
                     evnt.Author = rdr["Author"].ToString();
+                    evnt.Places = Convert.ToInt32(rdr["Places"]);
 
-                   
+
                     lstevent.Add(evnt);
                 }
                 con.Close();
@@ -85,6 +87,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@BirthDate", usr.BirthDate);
                 cmd.Parameters.AddWithValue("@Login", usr.Login);
                 cmd.Parameters.AddWithValue("@Password", usr.Password);
+                cmd.Parameters.AddWithValue("@PhoneNum", usr.PhoneNum);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -107,23 +110,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@BirthDate", usr.BirthDate);
                 cmd.Parameters.AddWithValue("@Login", usr.Login);
                 cmd.Parameters.AddWithValue("@Password", usr.Password);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-                con.Close();
-            }
-        }
-
-        //To Delete particular user   
-        public void DeleteUser(int? id)
-        {
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand("spDeleteUser", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@UserId", id);
+                cmd.Parameters.AddWithValue("@PhoneNum", usr.PhoneNum);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -153,6 +140,7 @@ namespace SEMaker.Models
                     usr.BirthDate = DateTime.Parse(rdr["BirthDate"].ToString());
                     usr.Login = rdr["Login"].ToString();
                     usr.Password = rdr["Password"].ToString();
+                    usr.PhoneNum = rdr["PhoneNum"].ToString();
                 }
             }
             if (usr.Name == null)
@@ -173,6 +161,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Sport", evnt.Sport);
                 cmd.Parameters.AddWithValue("@City", evnt.City);
                 cmd.Parameters.AddWithValue("@Author", author);
+                cmd.Parameters.AddWithValue("@Places", evnt.Places);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -192,6 +181,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Name", evnt.Name);
                 cmd.Parameters.AddWithValue("@Sport", evnt.Sport);
                 cmd.Parameters.AddWithValue("@City", evnt.City);
+                cmd.Parameters.AddWithValue("@Date", evnt.Date);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -215,9 +205,12 @@ namespace SEMaker.Models
                 while (rdr.Read())
                 {
                     evnt.ID = Convert.ToInt32(rdr["EventID"]);
+                    evnt.Author = rdr["Author"].ToString();
                     evnt.Name = rdr["Name"].ToString();
                     evnt.Sport = rdr["Sport"].ToString();
                     evnt.City = rdr["City"].ToString();
+                    evnt.Places = Convert.ToInt32(rdr["Places"]);
+                    evnt.Date = DateTime.Parse(rdr["BirthDate"].ToString());
                 }
             }
             return evnt;
@@ -314,6 +307,7 @@ namespace SEMaker.Models
                     evnt.Sport = rdr["Sport"].ToString();
                     evnt.City = rdr["City"].ToString();
                     evnt.Author = rdr["Author"].ToString();
+                    evnt.Places = Convert.ToInt32(rdr["Places"]);
 
 
                     lstevent.Add(evnt);

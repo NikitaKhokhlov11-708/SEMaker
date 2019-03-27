@@ -12,7 +12,8 @@ namespace SEMaker.Controllers
 {
     public class AccountController : Controller
     {
-         DataAccessLayer objevent = new DataAccessLayer();
+        public string ErrorMessage { get; set; }
+        DataAccessLayer objevent = new DataAccessLayer();
 
         [HttpGet]
         public IActionResult Login()
@@ -61,14 +62,18 @@ namespace SEMaker.Controllers
                         SecondName = model.SecondName,
                         BirthDate = model.BirthDate,
                         Login = model.Login,
-                        Password = model.Password
+                        Password = model.Password,
+                        PhoneNum = model.PhoneNum
                     });
                     await Authenticate(model.Login); // аутентификация
 
                     return RedirectToAction("Index", "Event", new { area = "" });
                 }
                 else
-                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                {
+                    ModelState.AddModelError("", "Некорректные данные");
+                }
+
             }
             return View(model);
         }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SEMaker.Models
 {
@@ -15,6 +12,10 @@ namespace SEMaker.Models
         public string Sport { get; set; }
         [Required]
         public string City { get; set; }
+        [Required]
+        public int Places { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
         public string Author { get; set; }
     }
 }

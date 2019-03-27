@@ -107,7 +107,7 @@ namespace SEMaker.Controllers
             }
             Event evnt = objevent.GetEventData(id);
 
-            if (evnt == null || evnt.Author != User.Identity.Name)
+            if (evnt == null || !evnt.Author.Equals(User.Identity.Name))
             {
                 return NotFound();
             }
@@ -173,7 +173,7 @@ namespace SEMaker.Controllers
         public IActionResult Apply(int? id)
         {
             var evnt = objevent.GetEventData(id);
-            if (User.Identity.IsAuthenticated && evnt.Author != User.Identity.Name && !objevent.CheckApplication(User.Identity.Name, id))
+            if (User.Identity.IsAuthenticated && evnt.Author != User.Identity.Name && evnt.Places > 0 && !objevent.CheckApplication(User.Identity.Name, id))
             {
                 objevent.Apply(id, User.Identity.Name);
             }
