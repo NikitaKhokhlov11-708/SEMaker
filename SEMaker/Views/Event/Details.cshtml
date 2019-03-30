@@ -35,6 +35,7 @@
         if (User.Identity.Name.Equals(@Model.Author))
         {
             <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> <nobr> |</nobr>
+            <a asp-action="GetFile" asp-route-id="@Model.ID">Get Applications</a> <nobr> |</nobr>
         }
         else if (!objevents.CheckApplication(User.Identity.Name, @Model.ID))
         {

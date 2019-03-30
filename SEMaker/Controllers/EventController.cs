@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SEMaker.Models;
@@ -11,6 +13,13 @@ namespace SEMaker.Controllers
     public class EventController : Controller
     {
         DataAccessLayer objevent = new DataAccessLayer();
+
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+        public EventController(IHostingEnvironment hostingEnvironment)
+        {
+            _hostingEnvironment = hostingEnvironment;
+        }
 
         public IActionResult Index(string sortOrder,
                                     string currentFilter,
@@ -38,7 +47,7 @@ namespace SEMaker.Controllers
             if (!String.IsNullOrEmpty(searchString) && searchString != "my")
             {
                 lstEvent = lstEvent.Where(s => s.Name.Contains(searchString)
-                                       || s.Sport.Contains(searchString) 
+                                       || s.Sport.Contains(searchString)
                                        || s.Author.Contains(searchString)
                                        || s.City.Contains(searchString));
             }
@@ -154,7 +163,7 @@ namespace SEMaker.Controllers
                 return NotFound();
             }
             Event evnt = objevent.GetEventData(id);
-            
+
             if (evnt == null || evnt.Author != User.Identity.Name)
             {
                 return NotFound();
@@ -178,6 +187,27 @@ namespace SEMaker.Controllers
                 objevent.Apply(id, User.Identity.Name);
             }
             return RedirectToAction("Index");
+        }
+
+        public FileResult GetFile(int? id)
+        {
+            var evnt = objevent.GetEventData(id);
+            var applications = objevent.GetApplications(id).ToList();
+            
+            if (User.Identity.Name != evnt.Author || applications.Count == 0)
+            {
+                return PhysicalFile(_hostingEnvironment.ContentRootPath + @"\ApplicationsTxt\ban.txt", "text/plain");
+            }
+
+            string name = @"ApplicationsTxt\" + User.Identity.Name + ".txt";
+            StreamWriter sw = new StreamWriter(name);
+            foreach (var user in applications)
+            {
+                sw.WriteLine(user.Name + " " + user.Surname + " " + user.SecondName + " " + user.BirthDate + " " + user.PhoneNum);
+            }
+
+            sw.Close();
+            return PhysicalFile(_hostingEnvironment.ContentRootPath + @"\" + name, "text/plain");
         }
     }
 }

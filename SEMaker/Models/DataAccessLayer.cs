@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
 
         //To View all employees details      
         public IEnumerable<Event> GetAllEvents()
@@ -162,6 +162,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@City", evnt.City);
                 cmd.Parameters.AddWithValue("@Author", author);
                 cmd.Parameters.AddWithValue("@Places", evnt.Places);
+                cmd.Parameters.AddWithValue("@Date", evnt.Date);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -210,7 +211,7 @@ namespace SEMaker.Models
                     evnt.Sport = rdr["Sport"].ToString();
                     evnt.City = rdr["City"].ToString();
                     evnt.Places = Convert.ToInt32(rdr["Places"]);
-                    evnt.Date = DateTime.Parse(rdr["BirthDate"].ToString());
+                    evnt.Date = DateTime.Parse(rdr["Date"].ToString());
                 }
             }
             return evnt;
@@ -233,21 +234,29 @@ namespace SEMaker.Models
             }
         }
 
-        public IEnumerable<int> GetApplications(int? id)
+        public IEnumerable<User> GetApplications(int? id)
         {
-            List<int> lstApplications = new List<int>();
+            List<User> lstApplications = new List<User>();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("spGetApplications", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@EventID", id);
+                cmd.Parameters.AddWithValue("@EvntID", id);
                 con.Open();
                 SqlDataReader rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
-                    lstApplications.Add(Convert.ToInt32(rdr["EventID"]));
+                    var user = new User
+                    {
+                        Name = rdr["Name"].ToString(),
+                        Surname = rdr["Surname"].ToString(),
+                        SecondName = rdr["SecondName"].ToString(),
+                        BirthDate = DateTime.Parse(rdr["BirthDate"].ToString()),
+                        PhoneNum = rdr["PhoneNum"].ToString()
+                    };
+                    lstApplications.Add(user);
                 }
                 con.Close();
             }
@@ -308,6 +317,7 @@ namespace SEMaker.Models
                     evnt.City = rdr["City"].ToString();
                     evnt.Author = rdr["Author"].ToString();
                     evnt.Places = Convert.ToInt32(rdr["Places"]);
+                    evnt.Date = DateTime.Parse(rdr["Date"].ToString());
 
 
                     lstevent.Add(evnt);

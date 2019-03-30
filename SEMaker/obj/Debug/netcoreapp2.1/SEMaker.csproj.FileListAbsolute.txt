@@ -207,7 +207,6 @@ C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.dll
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.pdb
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.csproj.CopyComplete
-C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Index.g.cshtml.cs
 D:\SEM\SEMaker\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.deps.json
 D:\SEM\SEMaker\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.runtimeconfig.json
 D:\SEM\SEMaker\SEMaker\bin\Debug\netcoreapp2.1\SEMaker.runtimeconfig.dev.json
@@ -253,3 +252,5 @@ D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.pdb
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\SEMaker.csproj.CopyComplete
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Edit.g.cshtml.cs
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.g.cshtml.cs
+C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Edit.g.cshtml.cs
+C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.g.cshtml.cs

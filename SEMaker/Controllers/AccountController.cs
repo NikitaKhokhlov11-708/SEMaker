@@ -105,13 +105,19 @@ namespace SEMaker.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ProfileModel model)
+        public async Task<IActionResult> Edit(ProfileModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = objevent.GetUserData(model.Login);
+                var user = objevent.GetUserData(User.Identity.Name);
                 if (user != null)
                 {
+                    user.Name = model.Name;
+                    user.Surname = model.Surname;
+                    user.SecondName = model.SecondName;
+                    user.BirthDate = model.BirthDate;
+                    user.Password = model.Password;
+                    user.PhoneNum = model.PhoneNum;
                     objevent.UpdateUser(user);
                     return RedirectToAction("Index", "Event", new { area = "" });
                 }
@@ -119,5 +125,12 @@ namespace SEMaker.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
     }
 }
