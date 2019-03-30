@@ -15,6 +15,7 @@ namespace SEMaker.Models
         [Required]
         public int Places { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
         public string Author { get; set; }
     }

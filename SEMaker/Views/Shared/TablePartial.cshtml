@@ -13,9 +13,14 @@
                 @Html.DisplayNameFor(model => model.Sport)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Places)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Author)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +37,12 @@
                     @Html.DisplayFor(modelItem => item.Sport)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Places)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Author)
                 </td>
                 <td>
@@ -39,11 +50,11 @@
                     {
                         if (User.Identity.Name == item.Author)
                         {
-                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> <nobr> |</nobr>
+                            <a asp-action="Edit" asp-route-id="@item.ID">Редактировать</a> <nobr> |</nobr>
                         }
                     }
-                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.ID">Подробнее</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a>
                 </td>
             </tr>
         }

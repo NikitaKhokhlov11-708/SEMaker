@@ -3,8 +3,7 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<h2>Edit</h2>
-<h4>Events</h4>
+<h2>Редактирование мероприятия</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -12,23 +11,42 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Название</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
+                <label asp-for="City" class="control-label">Город</label>
                 <input asp-for="City" class="form-control" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Sport" class="control-label"></label>
+                <label asp-for="Sport" class="control-label">Спорт</label>
                 <select asp-for="Sport" class="form-control">
-                    <option value="">-- Select Gender --</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="">-- Выберите вид спорта --</option>
+                    <option value="Шахматы">Шахматы</option>
+                    <option value="Плавание">Плавание</option>
+                    <option value="Бег">Бег</option>
+                    <option value="Лыжи">Лыжи</option>
+                    <option value="Теннис">Теннис</option>
+                    <option value="Бокс">Бокс</option>
+                    <option value="Гимнастика">Гимнастика</option>
+                    <option value="Дартс">Дартс</option>
+                    <option value="Гольф">Гольф</option>
+                    <option value="Бадминтон">Бадминтон</option>
                 </select>
                 <span asp-validation-for="Sport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Places" class="control-label">Кол-во мест: </label>
+                <input asp-for="Places" type="number" id="number" value="20" min="0" max="9999" />
+                <span asp-validation-for="Places" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Выберите дату:</label><br />
+                <input class="datefield" type="date" value="2019-01-01"
+               min="1997-01-01" max="2099-01-01" asp-for="Date" />
+                <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
@@ -37,7 +55,7 @@
     </div>
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад к списку</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

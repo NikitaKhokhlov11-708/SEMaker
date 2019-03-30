@@ -3,74 +3,58 @@
 @{
     ViewData["Title"] = "Create";
 }
-<h2>Create</h2>
-<h4>Events</h4>
+<h2>Создание нового мероприятия</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">Название</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
+                <label asp-for="City" class="control-label">Город</label>
                 <input asp-for="City" class="form-control" />
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Sport" class="control-label"></label>
+                <label asp-for="Sport" class="control-label">Спорт</label>
                 <select asp-for="Sport" class="form-control">
-                    <option value="">-- Select Sports --</option>
-                    <option value="Chess">Chess</option>
-                    <option value="Swimming">Swimming</option>
-                    <option value="Running">Running</option>
-                    <option value="Ski">Ski</option>
-                    <option value="Tennis">Tennis</option>
-                    <option value="Boxing">Boxing</option>
-                    <option value="Gymnastics">Gymnastics</option>
-                    <option value="Darts">Darts</option>
-                    <option value="Golf">Golf</option>
+                    <option value="">-- Выберите вид спорта --</option>
+                    <option value="Шахматы">Шахматы</option>
+                    <option value="Плавание">Плавание</option>
+                    <option value="Бег">Бег</option>
+                    <option value="Лыжи">Лыжи</option>
+                    <option value="Теннис">Теннис</option>
+                    <option value="Бокс">Бокс</option>
+                    <option value="Гимнастика">Гимнастика</option>
+                    <option value="Дартс">Дартс</option>
+                    <option value="Гольф">Гольф</option>
+                    <option value="Бадминтон">Бадминтон</option>
                 </select>
                 <span asp-validation-for="Sport" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Places" class="control-label"></label>
+                <label asp-for="Places" class="control-label">Кол-во мест: </label>
                 <input asp-for="Places" type="number" id="number" value="20" min="0" max="9999" />
                 <span asp-validation-for="Places" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label">Выберите дату:</label><br />
-                <input class="datefield" type="date" value="2000-01-01"
-                       min="1919-01-01" max="2222-01-01" asp-for="Date" />
-                <script>
-                    var today = new Date();
-                    var dd = today.getDate();
-                    var mm = today.getMonth() + 1; //January is 0!
-                    var yyyy = today.getFullYear();
-                    if (dd < 10) {
-                        dd = '0' + dd
-                    }
-                    if (mm < 10) {
-                        mm = '0' + mm
-                    }
-
-                    today = yyyy + '-' + mm + '-' + dd;
-                    document.getElementsByClassName("datefield").setAttribute("min", today);
-                    document.getElementsByClassName("datefield").setAttribute("value", today);
-                </script>
+                <input class="field" type="date" value="2019-01-01"
+               min="1997-01-01" max="2099-01-01" asp-for="Date" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Создать мероприятие" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад к списку мероприятий</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

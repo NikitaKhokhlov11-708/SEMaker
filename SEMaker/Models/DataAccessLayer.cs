@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
 
         //To View all employees details      
         public IEnumerable<Event> GetAllEvents()
@@ -34,6 +34,7 @@ namespace SEMaker.Models
                     evnt.City = rdr["City"].ToString();
                     evnt.Author = rdr["Author"].ToString();
                     evnt.Places = Convert.ToInt32(rdr["Places"]);
+                    evnt.Date = DateTime.Parse(rdr["Date"].ToString());
 
                     lstevent.Add(evnt);
                 }
@@ -64,6 +65,7 @@ namespace SEMaker.Models
                     evnt.City = rdr["City"].ToString();
                     evnt.Author = rdr["Author"].ToString();
                     evnt.Places = Convert.ToInt32(rdr["Places"]);
+                    evnt.Date = DateTime.Parse(rdr["Date"].ToString());
 
 
                     lstevent.Add(evnt);
@@ -182,6 +184,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Name", evnt.Name);
                 cmd.Parameters.AddWithValue("@Sport", evnt.Sport);
                 cmd.Parameters.AddWithValue("@City", evnt.City);
+                cmd.Parameters.AddWithValue("@Places", evnt.Places);
                 cmd.Parameters.AddWithValue("@Date", evnt.Date);
 
                 con.Open();

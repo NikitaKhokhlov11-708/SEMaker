@@ -3,28 +3,45 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h2>Details</h2>
+<h2>Детали</h2>
 <div>
-    <h4>Events</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            Название:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Sport)
+            Город:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt>
+            Вид спорта:
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Sport)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.City)
+            Дата:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.City)
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            Кол-во мест:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Places)
+        </dd>
+        <dt>
+            Автор:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author)
         </dd>
     </dl>
 </div>
@@ -34,13 +51,14 @@
         var objevents = new DataAccessLayer();
         if (User.Identity.Name.Equals(@Model.Author))
         {
-            <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> <nobr> |</nobr>
-            <a asp-action="GetFile" asp-route-id="@Model.ID">Get Applications</a> <nobr> |</nobr>
+            <a asp-action="Edit" asp-route-id="@Model.ID">Редактировать</a> <nobr> |</nobr>
+            <a asp-action="Delete" asp-route-id="@Model.ID">Удалить</a> <nobr> |</nobr>
+            <a asp-action="GetFile" asp-route-id="@Model.ID">Получить заявки</a> <nobr> |</nobr>
         }
         else if (!objevents.CheckApplication(User.Identity.Name, @Model.ID))
         {
-            <a asp-action="Apply" asp-controller="Event" asp-route-id="@Model.ID">Apply</a> <nobr> |</nobr>
+            <a asp-action="Apply" asp-controller="Event" asp-route-id="@Model.ID">Подвердить</a> <nobr> |</nobr>
         }
     }
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад к списку</a>
 </div> 

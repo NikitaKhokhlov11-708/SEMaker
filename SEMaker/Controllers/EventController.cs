@@ -30,6 +30,8 @@ namespace SEMaker.Controllers
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["AuthorSortParm"] = String.IsNullOrEmpty(sortOrder) ? "author_desc" : "";
             ViewData["CitySortParm"] = String.IsNullOrEmpty(sortOrder) ? "city_desc" : "";
+            ViewData["PlaceSortParm"] = String.IsNullOrEmpty(sortOrder) ? "places_desc" : "";
+            ViewData["DateSortParm"] = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
             ViewData["SportSortParm"] = String.IsNullOrEmpty(sortOrder) ? "sport_desc" : "";
 
             if (searchString != null)
@@ -49,7 +51,9 @@ namespace SEMaker.Controllers
                 lstEvent = lstEvent.Where(s => s.Name.Contains(searchString)
                                        || s.Sport.Contains(searchString)
                                        || s.Author.Contains(searchString)
-                                       || s.City.Contains(searchString));
+                                       || s.City.Contains(searchString)
+                                       || s.Places.ToString().Contains(searchString)
+                                       || s.Date.ToString().Contains(searchString));
             }
             else if (searchString == "my")
             {
@@ -69,6 +73,12 @@ namespace SEMaker.Controllers
                     break;
                 case "sport_desc":
                     lstEvent = lstEvent.OrderBy(s => s.Sport);
+                    break;
+                case "places_desc":
+                    lstEvent = lstEvent.OrderBy(s => s.Places);
+                    break;
+                case "date_desc":
+                    lstEvent = lstEvent.OrderBy(s => s.Date);
                     break;
                 default:
                     lstEvent = lstEvent.OrderBy(s => s.Name);

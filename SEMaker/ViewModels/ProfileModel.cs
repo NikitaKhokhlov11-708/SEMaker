@@ -30,7 +30,7 @@ namespace SEMaker.ViewModels
         [Compare("Password", ErrorMessage = "Пароль введен неверно")]
         public string ConfirmPassword { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        [Required(ErrorMessage = "Не указан номер")]
         [RegularExpression(@"^(\d{10})$", ErrorMessage = "Неправильный номер")]
         public string PhoneNum { get; set; }
     }
