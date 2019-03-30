@@ -1,0 +1,70 @@
+﻿@model SEMaker.ViewModels.ProfileModel
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<h2>Редактирование профиля</h2>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<form asp-action="Edit" asp-controller="Account" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"  />
+    <div class="form-group">
+        <label asp-for="Surname" class="control-label">Введите фамилию:</label><br />
+        <input type="text" asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Введите имя:</label><br />
+        <input type="text" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SecondName" class="control-label">Введите отчество:</label><br />
+        <input type="text" asp-for="SecondName" class="form-control" />
+        <span asp-validation-for="SecondName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate" class="control-label">Выберите дату рождения:</label><br />
+        <input class="datefield" type="date" value="2000-01-01"
+               min="1919-01-01" max="2000-01-01" asp-for="BirthDate" />
+        <script>
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementsByClassName("datefield").setAttribute("max", today);
+        </script>
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNum" class="control-label">Номер телефона</label><br />
+        <input asp-for="PhoneNum" class="form-control" />
+        <span asp-validation-for="PhoneNum" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Login" class="control-label">Введите логин</label><br />
+        <input type="text" asp-for="Login" class="form-control" />
+        <span asp-validation-for="Login" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password" class="control-label">Введите пароль</label><br />
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword" class="control-label">Повторите пароль</label><br />
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div>
+        <input type="submit" value="Изменить профиль" class="btn" />
+    </div>
+</form>

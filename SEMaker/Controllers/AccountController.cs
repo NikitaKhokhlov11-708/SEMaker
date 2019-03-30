@@ -96,5 +96,28 @@ namespace SEMaker.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
         }
+
+        public IActionResult Index()
+        {
+            var user = objevent.GetUserData(User.Identity.Name);
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(ProfileModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = objevent.GetUserData(model.Login);
+                if (user != null)
+                {
+                    objevent.UpdateUser(user);
+                    return RedirectToAction("Index", "Event", new { area = "" });
+                }
+                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            }
+            return View(model);
+        }
     }
 }
