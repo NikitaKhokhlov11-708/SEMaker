@@ -10,8 +10,7 @@ namespace SEMaker.Models
     public class DataAccessLayer
     {
         string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
-
-        //To View all employees details      
+   
         public IEnumerable<Event> GetAllEvents()
         {
             List<Event> lstevent = new List<Event>();
@@ -75,7 +74,6 @@ namespace SEMaker.Models
             return lstevent;
         }
 
-        //To Add new user record      
         public void AddUser(User usr)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -97,7 +95,6 @@ namespace SEMaker.Models
             }
         }
 
-        //To Update user record      
         public void UpdateUser(User usr)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -119,8 +116,7 @@ namespace SEMaker.Models
                 con.Close();
             }
         }
-
-        //Get the details of a particular employee    
+        
         public User GetUserData(string login)
         {
             User usr = new User();
@@ -150,8 +146,7 @@ namespace SEMaker.Models
             return usr;
         }
 
-
-        //To Add new employee record      
+  
         public void AddEvent(Event evnt, String author)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -171,8 +166,7 @@ namespace SEMaker.Models
                 con.Close();
             }
         }
-
-        //To Update the records of a particluar employee    
+   
         public void UpdateEvent(Event evnt)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -192,8 +186,7 @@ namespace SEMaker.Models
                 con.Close();
             }
         }
-
-        //Get the details of a particular employee    
+ 
         public Event GetEventData(int? id)
         {
             Event evnt = new Event();
@@ -219,8 +212,7 @@ namespace SEMaker.Models
             }
             return evnt;
         }
-
-        //To Delete the record on a particular employee    
+   
         public void DeleteEvent(int? id)
         {
 
