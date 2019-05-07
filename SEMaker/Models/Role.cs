@@ -7,6 +7,8 @@ namespace SEMaker.Models
 {
     public class Role
     {
+        // 0 - user
+        // 1 - admin
         public int Id { get; set; }
         public string Name { get; set; }
         public List<User> Users { get; set; }

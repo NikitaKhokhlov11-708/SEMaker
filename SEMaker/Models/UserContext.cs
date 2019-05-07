@@ -8,11 +8,15 @@ namespace SEMaker.Models
 {
     public class UserContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
         public UserContext(DbContextOptions<UserContext> options)
             : base(options)
         {
             Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -87,7 +87,7 @@ namespace SEMaker.Controllers
 
             if (evnt == null || !objevent.CheckApplication(User.Identity.Name, id))
             {
-                    return NotFound();
+                return NotFound();
             }
             return View(evnt);
         }

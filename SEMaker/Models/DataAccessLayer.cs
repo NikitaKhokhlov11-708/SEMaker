@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
    
         public IEnumerable<Event> GetAllEvents()
         {
@@ -88,6 +88,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Login", usr.Login);
                 cmd.Parameters.AddWithValue("@Password", usr.Password);
                 cmd.Parameters.AddWithValue("@PhoneNum", usr.PhoneNum);
+                cmd.Parameters.AddWithValue("@Role", 0);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -146,7 +147,29 @@ namespace SEMaker.Models
             return usr;
         }
 
-  
+        //поиск роли по её id
+        public Role GetUserRole(int id)
+        {
+            Role role = new Role();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string sqlQuery = "SELECT * FROM tblRoles WHERE RoleId= '" + id + "'";
+                SqlCommand cmd = new SqlCommand(sqlQuery, con);
+
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    role.Name = rdr["RoleName"].ToString();
+                }
+            }
+            if (role.Name == null)
+                return null;
+            return role;
+        }
+
         public void AddEvent(Event evnt, String author)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
