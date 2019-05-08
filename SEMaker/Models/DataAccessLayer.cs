@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
    
         public IEnumerable<Event> GetAllEvents()
         {
@@ -40,6 +40,39 @@ namespace SEMaker.Models
                 con.Close();
             }
             return lstevent;
+        }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            List<User> lstusers = new List<User>();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string sqlQuery = "SELECT * FROM tblUsers";
+                SqlCommand cmd = new SqlCommand(sqlQuery, con);
+
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                
+                while (rdr.Read())
+                {
+                    User user = new User();
+
+                    user.Id = Convert.ToInt32(rdr["UserId"]);
+                    user.Name = rdr["Name"].ToString();
+                    user.Surname = rdr["Surname"].ToString();
+                    user.SecondName = rdr["SecondName"].ToString();
+                    user.BirthDate = DateTime.Parse(rdr["BirthDate"].ToString());
+                    user.Login = rdr["Login"].ToString();
+                    user.Password = rdr["Password"].ToString();
+                    user.PhoneNum = rdr["PhoneNum"].ToString();
+                    user.RoleId = Convert.ToInt32(rdr["Role"]);
+
+                    lstusers.Add(user);
+                }
+                con.Close();
+            }
+            return lstusers;
         }
 
         public IEnumerable<Event> GetMyEvents(String author)
@@ -88,7 +121,7 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Login", usr.Login);
                 cmd.Parameters.AddWithValue("@Password", usr.Password);
                 cmd.Parameters.AddWithValue("@PhoneNum", usr.PhoneNum);
-                cmd.Parameters.AddWithValue("@Role", 0);
+                cmd.Parameters.AddWithValue("@Role", usr.RoleId);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -140,21 +173,25 @@ namespace SEMaker.Models
                     usr.Login = rdr["Login"].ToString();
                     usr.Password = rdr["Password"].ToString();
                     usr.PhoneNum = rdr["PhoneNum"].ToString();
+                    usr.RoleId = Convert.ToInt32(rdr["Role"]);
                 }
             }
+
+            usr.Role = GetUserRole(usr.RoleId);
+
             if (usr.Name == null)
                 return null;
             return usr;
         }
 
         //поиск роли по её id
-        public Role GetUserRole(int id)
+        public Role GetUserRole(int? id)
         {
             Role role = new Role();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string sqlQuery = "SELECT * FROM tblRoles WHERE RoleId= '" + id + "'";
+                string sqlQuery = "SELECT * FROM tblRoles WHERE RoleId='" + id + "'";
                 SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
                 con.Open();

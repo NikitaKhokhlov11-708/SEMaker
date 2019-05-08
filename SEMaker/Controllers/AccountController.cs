@@ -7,6 +7,7 @@ using SEMaker.ViewModels; // пространство имен моделей Re
 using SEMaker.Models; // пространство имен UserContext и класса User
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SEMaker.Controllers
 {
@@ -33,8 +34,7 @@ namespace SEMaker.Controllers
                 var user = objevent.GetUserData(model.Login);
                 if (user == null)
                 {
-                    // добавляем пользователя в бд
-                    objevent.AddUser(new User
+                    user = new User
                     {
                         Name = model.Name,
                         Surname = model.Surname,
@@ -43,14 +43,14 @@ namespace SEMaker.Controllers
                         Login = model.Login,
                         Password = model.Password,
                         PhoneNum = model.PhoneNum,
-                        RoleId = 0
-                    });
+                        RoleId = 1,
+                        Role = objevent.GetUserRole(1)
+                    };
 
-                    var userRole = objevent.GetUserRole(0);
-                    if (userRole != null)
-                        user.Role = userRole;
+                    // добавляем пользователя в бд
+                    objevent.AddUser(user);
 
-                    await Authenticate(model.Login); // аутентификация
+                    await Authenticate(user); // аутентификация
 
                     return RedirectToAction("Index", "Event", new { area = "" });
                 }
@@ -78,7 +78,7 @@ namespace SEMaker.Controllers
                
                 if (user != null)
                 {
-                    await Authenticate(model.Login); // аутентификация
+                    await Authenticate(user); // аутентификация
 
                     return RedirectToAction("Index", "Event", new { area = "" });
                 }
@@ -87,12 +87,13 @@ namespace SEMaker.Controllers
             return View(model);
         }
 
-        private async Task Authenticate(string userName)
+        private async Task Authenticate(User user)
         {
             // создаем один claim
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role?.Name)
             };
             // создаем объект ClaimsIdentity
             ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
@@ -106,6 +107,7 @@ namespace SEMaker.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+        [Authorize(Roles = "user, admin")]
         public IActionResult Index()
         {
             var user = objevent.GetUserData(User.Identity.Name);

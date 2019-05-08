@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SEMaker.Models;
 
@@ -11,6 +12,7 @@ namespace SEMaker.Controllers
     {
         DataAccessLayer objevent = new DataAccessLayer();
 
+        [Authorize(Roles = "user, admin")]
         public IActionResult Index(string sortOrder,
                                     string currentFilter,
                                     string searchString,

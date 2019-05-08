@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace SEMaker.Controllers
             _hostingEnvironment = hostingEnvironment;
         }
 
+        [Authorize(Roles = "user, admin")]
         public IActionResult Index(string sortOrder,
                                     string currentFilter,
                                     string searchString,
@@ -90,6 +92,7 @@ namespace SEMaker.Controllers
             return View(PaginatedList<Event>.Create(lstEvent, page ?? 1, pageSize));
         }
 
+        [Authorize(Roles = "user, admin")]
         public IActionResult Profile()
         {
             if (User.Identity.IsAuthenticated)
@@ -100,6 +103,7 @@ namespace SEMaker.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user, admin")]
         public IActionResult Create()
         {
             return View();

@@ -190,10 +190,6 @@ C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Details.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Edit.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Event\Index.g.cshtml.cs
-C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
-C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\TablePartial.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -254,3 +250,4 @@ D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Edit.g.cshtml
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Edit.g.cshtml.cs
 C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Account\Index.g.cshtml.cs
+C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Index.g.cshtml.cs

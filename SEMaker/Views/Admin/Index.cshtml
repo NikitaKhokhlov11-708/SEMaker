@@ -1,0 +1,96 @@
+﻿@model PaginatedList<SEMaker.Models.User>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Пользователи</h2>
+<p>
+    <a asp-action="Create">Добавить пользователя</a>
+</p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Найти по названию: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Поиск" class="btn btn-default" /> |
+            <a asp-action="Index">Полный список</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Имя</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SurnameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Фамилия</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SecondNameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Отчество</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["LoginSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Логин</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PasswordSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Пароль</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneNumSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Номер телефона</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["RoleIdSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">RoleID</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Предыдущая страница
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Следующая страница
+</a>
