@@ -34,6 +34,9 @@
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["PasswordSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Пароль</a>
             </th>
             <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["BirthdateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Дата Рождения</a>
+            </th>
+            <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneNumSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Номер телефона</a>
             </th>
             <th>
@@ -62,15 +65,18 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.PhoneNum)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RoleId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                <a asp-action="Edit" asp-route-login="@item.Login">Редактировать</a> |
+                <a asp-action="Details" asp-route-login="@item.Login">Подробнее</a> |
+                <a asp-action="Delete" asp-controller="Account" asp-route-login="@item.Login">Удалить</a>
             </td>
         </tr>
         }

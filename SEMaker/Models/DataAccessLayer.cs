@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
    
         public IEnumerable<Event> GetAllEvents()
         {
