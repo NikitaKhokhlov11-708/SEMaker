@@ -140,7 +140,7 @@ using SEMaker.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(1134, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9756dca873e46f5a2ee47f2afff707f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "39532e18e77449ab93e92b52fa1c91a8", async() => {
                 BeginContext(1180, 13, true);
                 WriteLiteral("Редактировать");
                 EndContext();
@@ -175,7 +175,7 @@ using SEMaker.Models;
             WriteLiteral(" <nobr> |</nobr>\r\n            ");
             EndContext();
             BeginContext(1227, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0ef4b0c471e4f9cb7b0b3131c2ecfa0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af7efa7aaf3c4f38a56e25ba0ef3ab18", async() => {
                 BeginContext(1275, 7, true);
                 WriteLiteral("Удалить");
                 EndContext();
@@ -210,7 +210,7 @@ using SEMaker.Models;
             WriteLiteral(" <nobr> |</nobr>\r\n            ");
             EndContext();
             BeginContext(1316, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ad06d85d6a74d5abc2106b392560607", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea3ccf1c23f84eb7bb2381b32b4f37f9", async() => {
                 BeginContext(1365, 15, true);
                 WriteLiteral("Получить заявки");
                 EndContext();
@@ -255,7 +255,7 @@ using SEMaker.Models;
             WriteLiteral("            ");
             EndContext();
             BeginContext(1514, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4360f499fb1443a484a6c60e81255064", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19fdb63e8f55455e871a7196a0ba2582", async() => {
                 BeginContext(1584, 10, true);
                 WriteLiteral("Подвердить");
                 EndContext();
@@ -301,7 +301,7 @@ using SEMaker.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(1638, 40, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c095ce785ab0412fbe2320e8e8b1db07", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc0d2a8b74144b2c97664e24185fbdd1", async() => {
                 BeginContext(1660, 14, true);
                 WriteLiteral("Назад к списку");
                 EndContext();

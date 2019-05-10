@@ -162,5 +162,45 @@ namespace SEMaker.Controllers
             }
             return View(usr);
         }
+
+        [HttpGet]
+        public IActionResult Delete(string login)
+        {
+            if (login == null)
+            {
+                return NotFound();
+            }
+            User usr = objevent.GetUserData(login);
+
+            if (usr == null)
+            {
+                return NotFound();
+            }
+            return View(usr);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(string login)
+        {
+            objevent.DeleteUser(login);
+            return RedirectToAction("Index", "Admin");
+        }
+
+        [HttpGet]
+        public IActionResult Details(string login)
+        {
+            if (login == null)
+            {
+                return NotFound();
+            }
+            User usr = objevent.GetUserData(login);
+
+            if (usr == null)
+            {
+                return NotFound();
+            }
+            return View(usr);
+        }
     }
 }

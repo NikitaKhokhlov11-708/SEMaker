@@ -150,7 +150,23 @@ namespace SEMaker.Models
                 con.Close();
             }
         }
-        
+
+        public void DeleteUser(string login)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spDeleteUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@UserLogin", login);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
         public User GetUserData(string login)
         {
             User usr = new User();
@@ -199,6 +215,7 @@ namespace SEMaker.Models
 
                 while (rdr.Read())
                 {
+                    role.Id = Convert.ToInt32(rdr["RoleId"]);
                     role.Name = rdr["RoleName"].ToString();
                 }
             }

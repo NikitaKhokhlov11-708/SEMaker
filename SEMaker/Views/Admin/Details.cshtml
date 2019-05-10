@@ -1,0 +1,56 @@
+﻿@model SEMaker.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+}
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Фамилия:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt>
+            Имя:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            Отчество:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SecondName)
+        </dd>
+        <dt>
+            Дата рождения:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+        <dt>
+            Телефон:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNum)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="detailsbtn" asp-action="Edit" asp-route-login="@Model.Login">Редактировать</a>
+    <a class="detailsbtn" asp-action="Delete" asp-route-login="@Model.Login">Удалить</a>
+</div> 
+<style>
+    a.detailsbtn {
+        background-color: #ffffff;
+        border: solid;
+        color: black;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+    }
+</style>

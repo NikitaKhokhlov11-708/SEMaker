@@ -250,3 +250,5 @@ C:\Users\Nikita\Documents\GitHub\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\V
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Index.g.cshtml.cs
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Create.g.cshtml.cs
 D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Edit.g.cshtml.cs
+D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Delete.g.cshtml.cs
+D:\SEM\SEMaker\SEMaker\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Details.g.cshtml.cs
