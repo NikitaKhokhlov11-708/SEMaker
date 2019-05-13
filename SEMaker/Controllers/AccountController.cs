@@ -8,6 +8,7 @@ using SEMaker.Models; // пространство имен UserContext и кла
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace SEMaker.Controllers
 {
@@ -44,7 +45,9 @@ namespace SEMaker.Controllers
                         Password = model.Password,
                         PhoneNum = model.PhoneNum,
                         RoleId = 1,
-                        Role = objevent.GetUserRole(1)
+                        Role = objevent.GetUserRole(1),
+                        Premium = 0,
+                        EndDate = new System.DateTime(2007, 01, 01)
                     };
 
                     // добавляем пользователя в бд
@@ -76,7 +79,7 @@ namespace SEMaker.Controllers
             {
                 var user = objevent.GetUserData(model.Login);
                
-                if (user != null)
+                if (user != null && model.Password == user.Password)
                 {
                     await Authenticate(user); // аутентификация
 

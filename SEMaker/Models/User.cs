@@ -21,5 +21,7 @@ namespace SEMaker.Models
         public string PhoneNum { get; set; }
         public int? RoleId { get; set; }
         public Role Role { get; set; }
+        public int Premium { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

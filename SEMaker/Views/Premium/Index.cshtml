@@ -1,0 +1,25 @@
+﻿@model SEMaker.Models.User
+@{
+    ViewData["Title"] = "Premium";
+}
+<h2>Premium</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Активен:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Premium)
+        </dd>
+        <dt>
+            Дата окончания:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Buy">Купить Premium</a>
+</div>

@@ -106,7 +106,11 @@ namespace SEMaker.Controllers
         [Authorize(Roles = "user, admin")]
         public IActionResult Create()
         {
-            return View();
+            CheckPremium(objevent.GetUserData(User.Identity.Name));
+            if (objevent.GetUserData(User.Identity.Name).Premium == 1 || User.IsInRole("admin"))
+                return View();
+            else
+                return RedirectToAction("Index", "Premium", new { area = "" });
         }
 
         [HttpPost]
@@ -122,6 +126,7 @@ namespace SEMaker.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user, admin")]
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -141,19 +146,27 @@ namespace SEMaker.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind]Event evnt)
         {
-            if (id != evnt.ID)
+            CheckPremium(objevent.GetUserData(User.Identity.Name));
+            if (objevent.GetUserData(User.Identity.Name).Premium == 1 || User.IsInRole("admin"))
             {
-                return NotFound();
+                if (id != evnt.ID)
+                {
+                    return NotFound();
+                }
+                if (ModelState.IsValid)
+                {
+                    objevent.UpdateEvent(evnt);
+                    return RedirectToAction("Index");
+                }
+                return View(evnt);
             }
-            if (ModelState.IsValid)
-            {
-                objevent.UpdateEvent(evnt);
-                return RedirectToAction("Index");
-            }
-            return View(evnt);
+            else
+                return RedirectToAction("Index", "Premium", new { area = "" });
+            
         }
 
         [HttpGet]
+        [Authorize(Roles = "user, admin")]
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -170,6 +183,7 @@ namespace SEMaker.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user, admin")]
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -222,6 +236,15 @@ namespace SEMaker.Controllers
 
             sw.Close();
             return PhysicalFile(_hostingEnvironment.ContentRootPath + @"\" + name, "text/plain");
+        }
+
+        private void CheckPremium(User user)
+        {
+            if (user.EndDate < DateTime.Now)
+            {
+                user.Premium = 0;
+                objevent.UpdateUser(user);
+            }
         }
     }
 }

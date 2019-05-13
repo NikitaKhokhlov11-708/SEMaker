@@ -9,7 +9,7 @@ namespace SEMaker.Models
 {
     public class DataAccessLayer
     {
-        string connectionString = "Data Source=DESKTOP-0P8OOV9;Initial Catalog=semaker;Integrated Security=True";
+        string connectionString = "Data Source=DESKTOP-AC90BCL\\SQLEXPRESS;Initial Catalog=semaker;Integrated Security=True";
    
         public IEnumerable<Event> GetAllEvents()
         {
@@ -67,6 +67,8 @@ namespace SEMaker.Models
                     user.Password = rdr["Password"].ToString();
                     user.PhoneNum = rdr["PhoneNum"].ToString();
                     user.RoleId = Convert.ToInt32(rdr["Role"]);
+                    user.Premium = Convert.ToInt32(rdr["Role"]);
+                    user.EndDate = DateTime.Parse(rdr["BirthDate"].ToString());
 
                     lstusers.Add(user);
                 }
@@ -122,6 +124,8 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Password", usr.Password);
                 cmd.Parameters.AddWithValue("@PhoneNum", usr.PhoneNum);
                 cmd.Parameters.AddWithValue("@Role", usr.RoleId);
+                cmd.Parameters.AddWithValue("@Premium", usr.Premium);
+                cmd.Parameters.AddWithValue("@EndDate", usr.EndDate);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -144,6 +148,9 @@ namespace SEMaker.Models
                 cmd.Parameters.AddWithValue("@Login", usr.Login);
                 cmd.Parameters.AddWithValue("@Password", usr.Password);
                 cmd.Parameters.AddWithValue("@PhoneNum", usr.PhoneNum);
+                cmd.Parameters.AddWithValue("@Role", usr.RoleId);
+                cmd.Parameters.AddWithValue("@Premium", usr.Premium);
+                cmd.Parameters.AddWithValue("@EndDate", usr.EndDate);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -190,6 +197,8 @@ namespace SEMaker.Models
                     usr.Password = rdr["Password"].ToString();
                     usr.PhoneNum = rdr["PhoneNum"].ToString();
                     usr.RoleId = Convert.ToInt32(rdr["Role"]);
+                    usr.Premium = Convert.ToInt32(rdr["Premium"]);
+                    usr.EndDate = DateTime.Parse(rdr["BirthDate"].ToString());
                 }
             }
 
