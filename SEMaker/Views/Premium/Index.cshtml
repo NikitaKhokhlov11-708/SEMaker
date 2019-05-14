@@ -10,7 +10,18 @@
             Активен:
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Premium)
+            @if (User.Identity.IsAuthenticated)
+            {
+                var objevents = new DataAccessLayer();
+                if (objevents.GetUserData(User.Identity.Name).Premium == 1)
+                {
+                    <nobr>Да</nobr>
+                }
+                else
+                {
+                    <nobr>Нет</nobr>
+                }
+            }
         </dd>
         <dt>
             Дата окончания:

@@ -222,12 +222,12 @@ namespace SEMaker.Controllers
             var evnt = objevent.GetEventData(id);
             var applications = objevent.GetApplications(id).ToList();
             
-            if (User.Identity.Name != evnt.Author || applications.Count == 0)
+            if (!evnt.Author.Equals(User.Identity.Name) || applications.Count == 0)
             {
                 return PhysicalFile(_hostingEnvironment.ContentRootPath + @"\ApplicationsTxt\ban.txt", "text/plain");
             }
 
-            string name = @"ApplicationsTxt\" + User.Identity.Name + ".txt";
+            string name = @"ApplicationsTxt\" + evnt.ID + ".txt";
             StreamWriter sw = new StreamWriter(name);
             foreach (var user in applications)
             {

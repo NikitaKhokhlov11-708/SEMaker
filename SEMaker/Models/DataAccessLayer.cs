@@ -198,7 +198,7 @@ namespace SEMaker.Models
                     usr.PhoneNum = rdr["PhoneNum"].ToString();
                     usr.RoleId = Convert.ToInt32(rdr["Role"]);
                     usr.Premium = Convert.ToInt32(rdr["Premium"]);
-                    usr.EndDate = DateTime.Parse(rdr["BirthDate"].ToString());
+                    usr.EndDate = DateTime.Parse(rdr["EndDate"].ToString());
                 }
             }
 

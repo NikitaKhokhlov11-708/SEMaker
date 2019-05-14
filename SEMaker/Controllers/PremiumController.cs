@@ -10,10 +10,11 @@ namespace SEMaker.Controllers
 {
     public class PremiumController : Controller
     {
+        DataAccessLayer objevent = new DataAccessLayer();
+
         [Authorize(Roles = "user, admin")]
         public IActionResult Index()
         {
-            DataAccessLayer objevent = new DataAccessLayer();
             User user = objevent.GetUserData(User.Identity.Name);
             CheckPremium(user);
             return View(user);
@@ -22,18 +23,24 @@ namespace SEMaker.Controllers
         [Authorize(Roles = "user, admin")]
         public IActionResult Buy()
         {
-            DataAccessLayer objevent = new DataAccessLayer();
             User user = objevent.GetUserData(User.Identity.Name);
             CheckPremium(user);
-            user.Premium = 1;
-            user.EndDate = DateTime.Now.AddMonths(1);
+            if (user.Premium == 0)
+            {
+                user.Premium = 1;
+                user.EndDate = DateTime.Now.AddMonths(1);
+            }
+            else
+            {
+                user.EndDate = user.EndDate.AddMonths(1);
+            }
+            
             objevent.UpdateUser(user);
             return RedirectToAction("Index");
         }
 
         private void CheckPremium(User user)
         {
-            DataAccessLayer objevent = new DataAccessLayer();
             if (user.EndDate < DateTime.Now)
             {
                 user.Premium = 0;

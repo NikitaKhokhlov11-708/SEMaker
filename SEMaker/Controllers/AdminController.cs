@@ -132,6 +132,7 @@ namespace SEMaker.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult Edit(string login)
         {
             if (login == null)
@@ -164,6 +165,7 @@ namespace SEMaker.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(string login)
         {
             if (login == null)
@@ -188,6 +190,7 @@ namespace SEMaker.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult Details(string login)
         {
             if (login == null)
@@ -201,6 +204,34 @@ namespace SEMaker.Controllers
                 return NotFound();
             }
             return View(usr);
+        }
+        
+        [Authorize(Roles = "admin")]
+        public IActionResult ChangeRole(string login)
+        {
+            if (login == null)
+            {
+                return NotFound();
+            }
+            User usr = objevent.GetUserData(login);
+
+            if (usr == null)
+            {
+                return NotFound();
+            }
+
+            switch (usr.RoleId)
+            {
+                case 1:
+                    usr.RoleId = 2;
+                    break;
+                case 2:
+                    usr.RoleId = 1;
+                    break;
+            }
+
+            objevent.UpdateUser(usr);
+            return RedirectToAction("Index");
         }
     }
 }

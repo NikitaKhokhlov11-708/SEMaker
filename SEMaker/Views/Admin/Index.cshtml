@@ -74,7 +74,7 @@
                 @Html.DisplayFor(modelItem => item.RoleId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-login="@item.Login">Редактировать</a> |
+                <a asp-action="ChangeRole" asp-route-login="@item.Login">Изменить роль</a> |
                 <a asp-action="Details" asp-route-login="@item.Login">Подробнее</a> |
                 <a asp-action="Delete" asp-route-login="@item.Login">Удалить</a>
             </td>
