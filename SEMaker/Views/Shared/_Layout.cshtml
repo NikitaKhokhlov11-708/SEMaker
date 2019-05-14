@@ -31,11 +31,41 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Premium" asp-action="Index">Premium</a></li>
-                    <li><a asp-area="" asp-controller="Event" asp-action="Index">Мероприятия</a></li>
-                    <li><a asp-area="" asp-controller="Applications" asp-action="Index">Мои заявки</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="Index">Профиль</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="Logout">Выход</a></li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-area="" asp-controller="Premium" asp-action="Index">Premium</a>
+                        }
+                        </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-area="" asp-controller="Event" asp-action="Index">Мероприятия</a>
+                        }
+                        </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-area="" asp-controller="Applications" asp-action="Index">Мои заявки</a>
+                        }
+                        </li>
+                   
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            var objevents = new DataAccessLayer();
+                            if (objevents.GetUserData(User.Identity.Name).RoleId == 2)
+                            {
+                                <a asp-area="" asp-controller="Admin" asp-action="Index">Админ</a>
+                            }
+                        }
+                    </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-area="" asp-controller="Account" asp-action="Logout">Выход</a>
+                        }
+                        </li>
                 </ul>
             </div>
         </div>
